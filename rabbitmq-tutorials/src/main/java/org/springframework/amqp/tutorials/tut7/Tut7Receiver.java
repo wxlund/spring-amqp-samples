@@ -27,15 +27,15 @@ import com.rabbitmq.client.Envelope;
  */
 public class Tut7Receiver {
 	
-	@RabbitListener(queues="#{autoDeleteQueue1.name}")
-	public void receive1(String in, Envelope envelope) throws InterruptedException {
-		System.out.println(" [x] Received '" + envelope.getRoutingKey() + "':'" + in + "1" + "'");
+	@RabbitListener(queues="queue1")
+	public void receive1(String in) throws InterruptedException {
+		System.out.println(" [x] Received '"  + "':'" + in + "1" + "'");
 //		receive(in, 1);
 	}
 
-	@RabbitListener(queues="#{autoDeleteQueue2.name}")
-	public void receive2(String in, Envelope envelope) throws InterruptedException {
-		System.out.println(" [x] Received '" + envelope.getRoutingKey() + "':'" + in + "2" + "'");
+	@RabbitListener(queues="queue2")
+	public void receive2(String in) throws InterruptedException {
+		System.out.println(" [x] Received '" +  "':'" + in + "2" + "'");
 //		receive(in, 2);
 	}
 

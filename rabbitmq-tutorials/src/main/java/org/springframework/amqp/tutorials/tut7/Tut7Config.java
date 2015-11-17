@@ -45,36 +45,36 @@ public class Tut7Config {
 	private static class ReceiverConfig {
 		
 		@Bean
-		public Queue autoDeleteQueue1() {
-			return new AnonymousQueue();
+		public Queue queue1() {
+			return new Queue("queue1");
 		}
 
 		@Bean
-		public Queue autoDeleteQueue2() {
-			return new AnonymousQueue();
+		public Queue queue2() {
+			return new Queue("queue2");
 		}
 
 		@Bean
-		public Binding binding1(HeadersExchange headers, Queue autoDeleteQueue1) {
+		public Binding binding1(HeadersExchange headers, Queue queue1) {
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			map.put("queue1", "x-match");
 			map.put("Temperature", "hot");
-			map.put("Color", "White");
+			map.put("Color", "white");
 			Binding binding = BindingBuilder.//
-					bind(autoDeleteQueue1()).//
+					bind(queue1).//
 					to(headers).//
 					whereAll(map).match();
 			return binding;		
 		}
 	
 		@Bean
-		public Binding binding2(HeadersExchange headers, Queue autoDeleteQueue2) {
+		public Binding binding2(HeadersExchange headers, Queue queue2) {
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			map.put("queue1", "x-match");
 			map.put("Temperature", "hot");
-			map.put("Color", "White");
+			map.put("Color", "white");
 			Binding binding = BindingBuilder.//
-					bind(autoDeleteQueue2()).//
+					bind(queue2).//
 					to(headers).//
 					whereAll(map).match();
 			return binding;			

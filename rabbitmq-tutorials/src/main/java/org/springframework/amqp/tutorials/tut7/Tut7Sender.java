@@ -51,8 +51,8 @@ public class Tut7Sender {
 				    .setContentType(MessageProperties.CONTENT_TYPE_TEXT_PLAIN)
 				    .setMessageId("123")
 				    .setHeader("queue1", "x-match")
-				    .setHeader("temperature", "hot")
-				    .setHeader("color", "white")
+				    .setHeader("Temperature", "hot")
+				    .setHeader("Color", "white")
 				    .build();
 			Message message = MessageBuilder.withBody("Headers Test Message".getBytes())
 				    .andProperties(props)
