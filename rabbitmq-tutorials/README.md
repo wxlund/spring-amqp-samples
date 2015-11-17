@@ -18,6 +18,7 @@ Sender or Receiver.  Choose which tutorial to run by using these profiles:
 - {tut4|routing},{sender|receiver}
 - {tut5|topics},{sender|receiver}
 - {tut6|rpc},{client|server}
+- {tut7|headers-exchanges,{sender|receiver}
 
 After building with maven, run the app however you like to run boot apps.
 
